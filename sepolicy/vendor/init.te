@@ -6,3 +6,6 @@ allow init sysfs_dm:file { open write };
 allow init vendor_default_prop:property_service set;
 allow init sysfs_info:file { open read };
 allow init sysfs:file setattr;
+allow init firmware_file:filesystem { getattr };
+allow init bt_firmware_file:filesystem { getattr };
+allow init proc:file { setattr };
