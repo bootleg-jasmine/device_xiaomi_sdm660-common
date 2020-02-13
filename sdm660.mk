@@ -146,7 +146,7 @@ PRODUCT_PACKAGES += \
     android.hardware.configstore@1.1-service
 
 # Dalvik
-$(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk )
+$(call inherit-product,  vendor/pixeldust/configs/phone-xhdpi-4096-dalvik-heap.mk)
 
 # Display
 PRODUCT_PACKAGES += \
@@ -471,6 +471,8 @@ PRODUCT_PACKAGES += \
     camera.sdm660_shim
 
 # Soong
+PRODUCT_BOARD_PLATFORM := sdm660
+PRODUCT_USES_QCOM_HARDWARE := true
 PRODUCT_SOONG_NAMESPACES += \
     $(COMMON_PATH)
 
