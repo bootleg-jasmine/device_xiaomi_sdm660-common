@@ -19,6 +19,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.safemedia.bypass=true \
     audio.sys.noisy.broadcast.delay=600 \
     audio.sys.offload.pstimeout.secs=3 \
+    persist.audio.in_mmap_delay_micros=100 \
+    persist.audio.out_mmap_delay_micros=150 \
     persist.dirac.acs.controller=qem \
     persist.dirac.acs.ignore_error=1 \
     persist.dirac.acs.storeSettings=1 \
@@ -184,6 +186,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.dbg.vt_avail_ovr=1 \
     persist.vendor.ims.disableUserAgent=0
 
+# LMKD
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.low_ram=false
+    ro.lmk.kill_heaviest_task=true
+    ro.lmk.kill_timeout_ms=100
+    ro.lmk.use_minfree_levels=true
+    ro.lmk.log_stats=true
+
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.omx_default_rank.sw-audio=1 \
@@ -273,7 +283,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.iwlan_operation_mode=legacy \
     ro.telephony.use_old_mnc_mcc_format=true \
     ro.vendor.use_data_netmgrd=true \
-    telephony.lteOnCdmaDevice=1
+    telephony.lteOnCdmaDevice=1 \
+    persist.sys.fflag.override.settings_network_and_internet_v2=true
 
 # Rendering
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -295,7 +306,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.sensors.sta_detect=true
 
 # SurfaceFlinger
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
     ro.surface_flinger.max_virtual_display_dimension=4096 \
