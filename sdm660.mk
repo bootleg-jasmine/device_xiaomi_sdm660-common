@@ -393,7 +393,9 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service-qti
 
 # Preopt SystemUI
-PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+   SystemUI \
+   Launcher3QuickStep
 
 # Privapp-Permissions
 PRODUCT_COPY_FILES += \
